@@ -1,5 +1,6 @@
 ENV['TAZA_ENV'] = "isolation" if ENV['TAZA_ENV'].nil?
 require 'rubygems'
+require 'bundler/setup'
 require 'rspec'
 require 'mocha'
 

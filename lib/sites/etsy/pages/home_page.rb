@@ -2,7 +2,7 @@ require 'rubygems'
 require 'taza/page'
 
 module Etsy
-  class HomePagePage < ::Taza::Page
+  class HomePage < ::Taza::Page
 
   end
 end
