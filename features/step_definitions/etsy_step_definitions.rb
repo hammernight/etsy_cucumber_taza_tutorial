@@ -1,8 +1,11 @@
 
+After do
+  @site.close
+end
 Given /^I am searching on "([^"]*)"$/ do |site|
 end
-Given /^I am on "([^"]*)"$/ do |site|
-  site = Etsy.new
+Given /^I am on Etsy$/ do
+  @site = Etsy.new
 end
 
 
@@ -38,11 +41,11 @@ end
 
 
 When /^I want to browse through a treasury gallery$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.home_page.treasury_link.click
 end
 
 Then /^results will be displayed in the gallery$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.treasury.results.should be_present
 end
 
 Given /^I am on the Etsy cart page$/ do

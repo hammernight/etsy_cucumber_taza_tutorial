@@ -4,6 +4,6 @@ Feature: Etsy Browse Functionality
   I want to browse in a gallery
 
   Scenario: Browsing around the site for items
-    Given I am on "http://www.etsy.com"
+    Given I am on Etsy
     When I want to browse through a treasury gallery
     Then results will be displayed in the gallery

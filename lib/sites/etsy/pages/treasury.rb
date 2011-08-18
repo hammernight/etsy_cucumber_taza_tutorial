@@ -2,11 +2,11 @@ require 'rubygems'
 require 'taza/page'
 
 module Etsy
-  class HomePage < ::Taza::Page
+  class Treasury < ::Taza::Page
 
     element(:page_title) { browser.title }
 
-    element(:treasury_link) {browser.link(:title=> 'Treasury')}
+    element(:results) { browser.div(:class => 'list-treasury') }
 
   end
 end
