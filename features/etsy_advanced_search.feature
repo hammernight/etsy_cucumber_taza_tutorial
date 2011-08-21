@@ -4,7 +4,7 @@ Feature: Etsy Advanced Search Functionality
   I want to search for an item in a sub category
 
   Scenario Outline: Advanced Search for items in various categories that exist and don't exist
-    Given I am searching on "http://www.etsy.com"
+    Given I am searching on Etsy
     When I specify the "<Sub Category>" sub category
     And I search for "<Search Term>"
     Then I should see "<Search Results>" search results for "<Search Term>"
@@ -15,7 +15,7 @@ Feature: Etsy Advanced Search Functionality
     | Jewelry      | specdriver  | no             |
 
   Scenario: Misspelling a word corrects search automatically
-    Given I am searching on "http://www.etsy.com"
+    Given I am searching on Etsy
     When I specify the Knitting sub category
     And I search for "scalf"
     Then I should see some search results for "scarf"

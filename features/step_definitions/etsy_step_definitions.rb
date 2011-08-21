@@ -1,21 +1,43 @@
-
+Before do
+  @site = Etsy.new
+end
 After do
   @site.close
 end
-Given /^I am searching on "([^"]*)"$/ do |site|
+Given /^I am searching on Etsy$/ do
+  @site.browser.title.should == 'Etsy - Your place to buy and sell all things handmade, vintage, and supplies'
 end
+
 Given /^I am on Etsy$/ do
-  @site = Etsy.new
+  @site.browser.title.should == 'Etsy - Your place to buy and sell all things handmade, vintage, and supplies'
+end
+
+When /^I want to browse through a treasury gallery$/ do
+  @site.home_page.treasury_link.click
+end
+
+Then /^results will be displayed in the gallery$/ do
+  @site.treasury_page.results.should be_present
 end
 
 
+When /^I want to browse through a pounce$/ do
+  @site.home_page.pounce_link.click
+end
 
+Then /^i will be on the pounce page$/ do
+  @site.pounce_page.page_title.should == "Etsy :: Pounce :: Just Sold Items and Undiscovered Shops"
+end
+
+
+=begin
 
 When /^I specify the Knitting sub category$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-When /^I search for "([^"]*)"$/ do |search_item|
+When /^I search for "([^"]*)"$/ do
+  pending # express the regexp above with the code you wish you had
 end
 
 Then /^I should see some search results for "([^"]*)"$/ do |search_item|
@@ -31,7 +53,7 @@ Then /^I should see no search results for "([^"]*)"$/ do |invalid_search_item|
 end
 
 Then /^I should see that the search was for "([^"]*)" instead of "([^"]*)"$/ do |original, modified|
-
+  pending # express the regexp above with the code you wish you had
 end
 
 Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
@@ -39,14 +61,6 @@ Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
 end
 
 
-
-When /^I want to browse through a treasury gallery$/ do
-  @site.home_page.treasury_link.click
-end
-
-Then /^results will be displayed in the gallery$/ do
-  @site.treasury.results.should be_present
-end
 
 Given /^I am on the Etsy cart page$/ do
   pending # express the regexp above with the code you wish you had
@@ -69,8 +83,10 @@ When /^I remove the item from the cart$/ do
 end
 
 Then /^the cart is empty$/ do
+  pending # express the regexp above with the code you wish you had
 end
 
 When /^I specify the "([^"]*)" sub category$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
+=end

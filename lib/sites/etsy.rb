@@ -6,12 +6,8 @@ module Etsy
 
   class Etsy < ::Taza::Site
 
-    def initialize
-      super(:browser => Watir::Browser.new(:firefox))
-    end
-
     def close
-      browser.close()
+      browser.close
     end
 
   end

@@ -7,3 +7,8 @@ Feature: Etsy Browse Functionality
     Given I am on Etsy
     When I want to browse through a treasury gallery
     Then results will be displayed in the gallery
+
+  Scenario: Browsing around the site for items
+    Given I am on Etsy
+    When I want to browse through a pounce
+    Then i will be on the pounce page
