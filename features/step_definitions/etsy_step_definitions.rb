@@ -29,6 +29,23 @@ Then /^i will be on the pounce page$/ do
   @site.pounce_page.page_title.should == "Etsy :: Pounce :: Just Sold Items and Undiscovered Shops"
 end
 
+Given /^I am on the Etsy cart page$/ do
+ @site.home_page.shopping_cart.click
+end
+
+Given /^that the cart is empty$/ do
+  @site.shopping_cart_page.empty_cart.should be_present
+end
+
+When /^an item is added to the cart$/ do
+  @site.shopping_cart_page.etsy_home.click
+
+end
+
+Then /^the cart contains that item$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
 
 =begin
 
@@ -57,24 +74,6 @@ Then /^I should see that the search was for "([^"]*)" instead of "([^"]*)"$/ do 
 end
 
 Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
-end
-
-
-
-Given /^I am on the Etsy cart page$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given /^that the cart is empty$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^an item is added to the cart$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^the cart contains that item$/ do
   pending # express the regexp above with the code you wish you had
 end
 

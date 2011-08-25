@@ -4,6 +4,7 @@ Feature: Etsy Cart Functionality
   As a user
   I want to add and remove items from the cart
 
+
   Scenario: Item can be added to then removed from cart
     Given I am on the Etsy cart page
     And that the cart is empty
