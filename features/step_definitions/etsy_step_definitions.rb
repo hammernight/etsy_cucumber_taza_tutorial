@@ -30,22 +30,30 @@ Then /^i will be on the pounce page$/ do
 end
 
 Given /^I am on the Etsy cart page$/ do
- @site.home_page.shopping_cart.click
+ @site.etsy_header.shopping_cart_link.click
 end
 
 Given /^that the cart is empty$/ do
-  @site.shopping_cart_page.empty_cart.should be_present
+  #@site.shopping_cart_page.empty_cart.should be_present
+  @site.shopping_cart_page.first_checkout_item.exits?
 end
 
 When /^an item is added to the cart$/ do
-  @site.shopping_cart_page.etsy_home.click
-
+  @site.etsy_header.shopping_cart_link.click
 end
 
 Then /^the cart contains that item$/ do
   pending # express the regexp above with the code you wish you had
 end
 
+When /^I search for "([^"]*)"$/ do |search_item|
+  etsy.search_for(search_item)
+end
+
+Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
+  etsy.search_results_page
+
+end
 
 =begin
 
