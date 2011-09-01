@@ -30,5 +30,7 @@ describe "HomePage" do
     it "adds an item to the cart"
     it "adds two items to the cart"
     it "adds two items to the cart and removes one"
-  end
+    end
+
+
 end

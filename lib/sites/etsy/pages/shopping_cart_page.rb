@@ -12,8 +12,9 @@ module Etsy
     element(:empty_cart) { browser.div(:id => 'empty-cart') }
 
 
-    element(:first_checkout_item) { browser.div(:id => 'checkout').div(:class=>'order') }
-
+    element(:first_checkout_item) { browser.form(:class=>'order') }
+    element(:remove_from_cart) { browser.form(:class=>'order').span(:class => 'actions').link(:title => 'Remove all items from this shop')}
+    element(:item_id) { browser.form(:class => 'order').hidden(:name => 'cart_id')}
 
 
   end
