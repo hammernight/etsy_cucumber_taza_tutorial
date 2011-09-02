@@ -19,10 +19,9 @@ module Etsy
     element(:sign_in_link) { browser.link(:id => 'sign-in') }
     element(:shopping_cart_link) { browser.link(:title => 'Your Shopping Cart') }
 
+    element(:search_type){ |search_type| browser.li(:class, search_type)}
     element(:search_text) { browser.div(:class => 'input-group').text_field(:id => 'search-query') }
     element(:search_button) { browser.div(:class => 'input-group').button(:id => 'search_submit') }
-
-
 
   end
 

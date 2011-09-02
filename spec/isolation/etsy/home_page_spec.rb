@@ -18,19 +18,4 @@ describe "HomePage" do
       etsy.close
     end
   end
-
-  context "home_page basics" do
-    it "should show the Handpicked Items" do
-      etsy.home_page
-      etsy.close
-    end
-  end
-
-  context "adding items to cart" do
-    it "adds an item to the cart"
-    it "adds two items to the cart"
-    it "adds two items to the cart and removes one"
-    end
-
-
 end

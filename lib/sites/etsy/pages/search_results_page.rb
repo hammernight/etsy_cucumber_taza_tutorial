@@ -7,5 +7,7 @@ module Etsy
 
     element(:first_result) { browser.ul(:class => 'listings').li(:index => 1)}
     element(:first_result_link) { browser.ul(:class => 'listings').li(:index => 1).link(:class => 'listing-thumb')}
+    element(:search_results_message) { browser.h1(:class => 'summary')}
+
   end
 end

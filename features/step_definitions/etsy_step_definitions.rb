@@ -30,12 +30,12 @@ Then /^i will be on the pounce page$/ do
 end
 
 Given /^I am on the Etsy cart page$/ do
- @site.etsy_header.shopping_cart_link.click
+  @site.etsy_header.shopping_cart_link.click
 end
 
 Given /^that the cart is empty$/ do
-  #@site.shopping_cart_page.empty_cart.should be_present
-  @site.shopping_cart_page.first_checkout_item.exits?
+  @site.shopping_cart_page.empty_cart_message.text.should be_present
+
 end
 
 When /^an item is added to the cart$/ do
@@ -43,57 +43,38 @@ When /^an item is added to the cart$/ do
 end
 
 Then /^the cart contains that item$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.shopping_cart_page.cart_header.text.should == "1 item in your cart"
 end
 
 When /^I search for "([^"]*)"$/ do |search_item|
-  etsy.search_for(search_item)
+  @site.search_for(search_item)
 end
 
-Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
-  etsy.search_results_page
-
+When /^I search for "([^"]*)" of a specific "([^"]*)"$/ do |search_item, type|
+  pending
+  @site.etsy_header.search_type(type).click
+  @site.search_for(search_item)
 end
 
-=begin
-
-When /^I specify the Knitting sub category$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |search_category, search_item|
+  @site.browser.title.should include(search_category)
+  @site.search_results_page.search_results_message.text.should include(search_item)
 end
 
-When /^I search for "([^"]*)"$/ do
-  pending # express the regexp above with the code you wish you had
+
+Given /^I add an item to my cart$/ do
+  @site.add_items_to_cart("shirt")
 end
 
-Then /^I should see some search results for "([^"]*)"$/ do |search_item|
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I specify the Jewelry sub category$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see no search results for "([^"]*)"$/ do |invalid_search_item|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see that the search was for "([^"]*)" instead of "([^"]*)"$/ do |original, modified|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Given /^I have an item in my cart$/ do
+  @site.add_items_to_cart("belt")
 end
 
 When /^I remove the item from the cart$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.shopping_cart_page.remove_from_cart.click
+  sleep(3)
 end
 
 Then /^the cart is empty$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.shopping_cart_page.empty_cart_message.text.should be_present
 end
-
-When /^I specify the "([^"]*)" sub category$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-=end
