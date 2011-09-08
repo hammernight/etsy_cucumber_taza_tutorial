@@ -15,9 +15,9 @@ Feature: Etsy Search Functionality
     Then I should see "<item_type>" search results for "<item>"
 
   Scenarios: Search for item and item type
-    | item       | item_type |
-    | hat        | handmade  |
-    | shirt      | vintage   |
-    | thing      | supplies  |
-    | stuff      | people    |
-    | otherstuff | shops     |
+    | item   | item_type |
+    | hat    | handmade  |
+    | shirt  | vintage   |
+    | brush  | supplies  |
+    | george | people    |
+    | place  | shops     |

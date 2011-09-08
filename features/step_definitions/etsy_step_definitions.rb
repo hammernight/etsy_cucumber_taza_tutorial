@@ -78,3 +78,27 @@ end
 Then /^the cart is empty$/ do
   @site.shopping_cart_page.empty_cart_message.text.should be_present
 end
+
+Given /^I am performing an advanced search on Etsy$/ do
+  @site.home_page
+  @site.etsy_header.buy_link.click
+  @site.buy_page.advanced_search.click
+end
+
+When /^I enter the "([^"]*)"$/ do |search_term|
+  @site.advanced_search_page.search_text.set search_term
+end
+
+When /^I specify the "([^"]*)" category$/ do |category|
+  @site.advanced_search_page.search_category.select category
+end
+
+When /^I specify the "([^"]*)" sub category$/ do |sub_category|
+  @site.advanced_search_page.handmade_sub_category.select sub_category
+end
+
+Then /^I should see search results for "([^"]*)"$/ do |search_term|
+  @site.advanced_search_page.submit.click
+  @site.search_results_page.search_results_message.text.should include(search_term)
+end
+

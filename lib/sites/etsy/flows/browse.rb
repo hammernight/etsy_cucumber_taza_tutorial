@@ -12,5 +12,9 @@ module Etsy
       etsy_header.search_button.click
     end
 
+    #will add this later to make sure the cart is empty before a test
+    def shopping_cart_cleanup
+
+    end
   end
 end
