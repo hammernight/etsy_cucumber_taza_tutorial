@@ -22,6 +22,7 @@ end
 
 
 When /^I want to browse through a pounce$/ do
+  pending "pounce does not exist anymore"
   @site.home_page.pounce_link.click
 end
 
@@ -51,13 +52,12 @@ When /^I search for "([^"]*)"$/ do |search_item|
 end
 
 When /^I search for "([^"]*)" of a specific "([^"]*)"$/ do |search_item, type|
-  pending
+  @site.etsy_header.search_label.click
   @site.etsy_header.search_type(type).click
   @site.search_for(search_item)
 end
 
 Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |search_category, search_item|
-  @site.browser.title.should include(search_category)
   @site.search_results_page.search_results_message.text.should include(search_item)
 end
 

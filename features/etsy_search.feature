@@ -16,8 +16,8 @@ Feature: Etsy Search Functionality
 
   Scenarios: Search for item and item type
     | item   | item_type |
-    | hat    | handmade  |
-    | shirt  | vintage   |
-    | brush  | supplies  |
-    | george | people    |
-    | place  | shops     |
+    | hat    | Handmade  |
+    | shirt  | Vintage   |
+    | brush  | Supplies  |
+    | george | People    |
+    | place  | Shops     |

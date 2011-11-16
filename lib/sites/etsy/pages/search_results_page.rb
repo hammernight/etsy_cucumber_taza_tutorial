@@ -9,5 +9,7 @@ module Etsy
     element(:first_result_link) { browser.ul(:class => 'listings').li(:index => 1).link(:class => 'listing-thumb')}
     element(:search_results_message) { browser.h1(:class => 'summary')}
 
+    element(:search_type_filter) { |search_type| browser.dt(:text => "#{search_type}")}
+
   end
 end

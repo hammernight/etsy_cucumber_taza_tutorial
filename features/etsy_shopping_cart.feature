@@ -11,11 +11,12 @@ Feature: Etsy Cart Functionality
 
   Scenario: Existing item can be removed from the cart
     Given I am on the Etsy cart page
+    And I have an item in my cart
     When I remove the item from the cart
     Then the cart is empty
 
   Scenario: Adding and removing item in the same session
     Given I am on Etsy
-    And I have an item in my cart
-    When I remove the item from the cart
+    When I have an item in my cart
+    And I remove the item from the cart
     Then the cart is empty
