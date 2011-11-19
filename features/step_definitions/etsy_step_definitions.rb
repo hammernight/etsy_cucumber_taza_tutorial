@@ -5,11 +5,11 @@ After do
   @site.close
 end
 Given /^I am searching on Etsy$/ do
-  @site.browser.title.should == 'Etsy - Your place to buy and sell all things handmade, vintage, and supplies'
+  @site.browser.title.should include('Your place to buy and sell all things handmade')
 end
 
 Given /^I am on Etsy$/ do
-  @site.browser.title.should == 'Etsy - Your place to buy and sell all things handmade, vintage, and supplies'
+  @site.browser.title.should include('Your place to buy and sell all things handmade')
 end
 
 When /^I want to browse through a treasury gallery$/ do
@@ -101,4 +101,19 @@ Then /^I should see search results for "([^"]*)"$/ do |search_term|
   @site.advanced_search_page.submit.click
   @site.search_results_page.search_results_message.text.should include(search_term)
 end
+
+Given /^I am on Etsy on my mobile device$/ do
+  @site.browser.title.should include('Your place to buy and sell all things handmade')
+end
+
+When /^I want to browse "([^"]*)"$/ do |new_link|
+  p @site.home_page.site_link(new_link)
+  sleep 40
+  @site.home_page.site_link(new_link).click
+end
+
+Then /^i will see "([^"]*)" in the search results$/ do |link_name|
+  @site.search_results_page.search_results_message.text.should include(link_name)
+end
+
 
