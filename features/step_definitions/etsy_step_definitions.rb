@@ -74,8 +74,8 @@ When /^I remove the item from the cart$/ do
   @site.shopping_cart_page.remove_from_cart.click
 end
 
-Then /^the cart is empty$/ do
-  @site.shopping_cart_page.empty_cart_message.text.should be_present
+Then /^the cart is empty "([^"]*)" should be visible$/ do |message|
+  @site.shopping_cart_page.empty_cart.when_present.text.should include(message)
 end
 
 Given /^I am performing an advanced search on Etsy$/ do
@@ -111,6 +111,6 @@ Then /^I should see the facebook "([^"]*)" Button$/ do |link_text|
 end
 
 Given /^I have items in my cart$/ do
-  And "I am on Etsy"
-  And "I add an item to my cart"
+  step "I am on Etsy"
+  step "I add an item to my cart"
 end
