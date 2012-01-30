@@ -8,7 +8,7 @@ Feature: Etsy Browse Functionality
     When I want to browse through a treasury gallery
     Then results will be displayed in the gallery
 
-  Scenario: Browsing around the site for items
+  Scenario: Browsing around the site for items for a friend
     Given I am on Etsy
-    When I want to browse through a pounce
-    Then i will be on the pounce page
+    When I want go to the "Gift Ideas" page
+    Then I should see the facebook "Get Gift Recommendations" Button

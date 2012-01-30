@@ -8,7 +8,7 @@ module Etsy
     element(:etsy_home) { browser.link(:text => 'Etsy') }
 
     element(:treasury_link) { browser.link(:title=> 'Treasury') }
-    element(:pounce_link) { browser.link(:title=> 'Pounce') }
+    element(:side_bar_link) { |link_text| browser.link(:title => "#{link_text}") }
 
   end
 end

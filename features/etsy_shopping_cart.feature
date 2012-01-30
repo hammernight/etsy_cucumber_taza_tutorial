@@ -10,7 +10,8 @@ Feature: Etsy Cart Functionality
     Then the cart contains that item
 
   Scenario: Existing item can be removed from the cart
-    Given I am on the Etsy cart page
+    Given I have items in my cart
+    And I am on the Etsy cart page
     When I remove the item from the cart
     Then the cart is empty
 

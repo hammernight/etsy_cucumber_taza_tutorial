@@ -72,7 +72,6 @@ end
 
 When /^I remove the item from the cart$/ do
   @site.shopping_cart_page.remove_from_cart.click
-  sleep(3)
 end
 
 Then /^the cart is empty$/ do
@@ -94,7 +93,8 @@ When /^I specify the "([^"]*)" category$/ do |category|
 end
 
 When /^I specify the "([^"]*)" sub category$/ do |sub_category|
-  @site.advanced_search_page.handmade_sub_category.select sub_category
+  sleep 5
+  @site.advanced_search_page.handmade_sub_category.when_present.select sub_category
 end
 
 Then /^I should see search results for "([^"]*)"$/ do |search_term|
@@ -102,3 +102,15 @@ Then /^I should see search results for "([^"]*)"$/ do |search_term|
   @site.search_results_page.search_results_message.text.should include(search_term)
 end
 
+When /^I want go to the "([^"]*)" page$/ do |link_name|
+  @site.home_page.side_bar_link(link_name).click
+end
+
+Then /^I should see the facebook "([^"]*)" Button$/ do |link_text|
+  @site.gift_ideas_page.facebook_button.text.should include(link_text)
+end
+
+Given /^I have items in my cart$/ do
+  And "I am on Etsy"
+  And "I add an item to my cart"
+end
