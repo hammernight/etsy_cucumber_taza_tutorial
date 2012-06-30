@@ -5,6 +5,7 @@ require 'rspec'
 require 'taza'
 require 'etsy'
 require 'watir-webdriver'
+require 'pry'
 
 ENV["TAZA_ENV"] ||= 'isolation'
 
