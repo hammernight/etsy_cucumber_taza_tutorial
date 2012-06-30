@@ -4,10 +4,7 @@ require 'etsy'
 
 describe "Advanced search" do
 
-
   before(:each) do
-
-
     etsy.home_page
   end
 
@@ -16,13 +13,9 @@ describe "Advanced search" do
   end
 
   context "from the Advanced search page" do
-    #profile = Selenium::WebDriver::Chrome::Profile.new
-    #profile['download.prompt_for_download'] = false
-    #profile['download.default_directory'] = "/path/to/dir"
-
 
     let(:etsy) { Etsy.new }
-    it "lets me do an advanced search" do
+    xit "lets me do an advanced search" do
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.advanced_search_page.search_text.set "hat"
@@ -38,14 +31,14 @@ describe "Advanced search" do
 
     end
 
-    it "lets me do an advanced search with a flow using default data" do
+    xit "lets me do an advanced search with a flow using default data" do
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.handmade_advanced_search
       etsy.search_results_page.search_results_message.text.should include("hat")
     end
 
-    it "lets me do an advanced search with a flow " do
+    xit "lets me do an advanced search with a flow " do
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.handmade_advanced_search('shirt', '5.00', '50.00', 'Canada')

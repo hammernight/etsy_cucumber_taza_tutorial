@@ -32,11 +32,14 @@ describe "Shopping Cart" do
   end
 
   context "view shopping cart" do
+    after(:each) do
+      etsy.close
+    end
+
     it "is empty" do
       etsy.home_page
       etsy.etsy_header.shopping_cart_link.click
-      etsy.shopping_cart_page.empty_cart_message.text.should be_present
-      etsy.close
+      etsy.shopping_cart_page.empty_cart.text.should == "Your cart is empty."
     end
   end
 
@@ -58,8 +61,10 @@ describe "Shopping Cart" do
     end
 
     it "contains items and allows me to remove one" do
+      etsy.add_items_to_cart("hat")
       etsy.etsy_header.shopping_cart_link.click
       etsy.shopping_cart_page.remove_from_cart.click
+      etsy.shopping_cart_page.cart_spinner.wait_while_present
       etsy.shopping_cart_page.cart_header.text.should == "1 item in your cart"
     end
   end

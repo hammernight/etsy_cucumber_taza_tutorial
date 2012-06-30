@@ -10,6 +10,8 @@ module Etsy
     element(:checkout_area) { browser.div(:id => 'checkout') }
 
     element(:empty_cart) { browser.div(:id => 'newempty').h2 }
+    #spinner48.gif
+    element(:cart_spinner) { browser.img(:class => 'spinner', :src => '/images/spinners/spinner48.gif') }
 
     element(:first_checkout_item) { browser.form(:class=>'order') }
     element(:items_list) { browser.div(:id => 'primary') }
