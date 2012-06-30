@@ -11,11 +11,12 @@ describe "Advanced search" do
   after(:each) do
     etsy.close
   end
+  let(:etsy) { Etsy.new }
 
   context "from the Advanced search page" do
 
-    let(:etsy) { Etsy.new }
-    xit "lets me do an advanced search" do
+    it "lets me do an advanced search" do
+      pending "functionality no longer exists"
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.advanced_search_page.search_text.set "hat"
@@ -28,17 +29,18 @@ describe "Advanced search" do
       etsy.advanced_search_page.sort_order "Price: High to Low"
       etsy.advanced_search_page.submit.click
       etsy.search_results_page.search_results_message.text.should include('hat')
-
     end
 
-    xit "lets me do an advanced search with a flow using default data" do
+    it "lets me do an advanced search with a flow using default data" do
+      pending "functionality no longer exists"
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.handmade_advanced_search
       etsy.search_results_page.search_results_message.text.should include("hat")
     end
 
-    xit "lets me do an advanced search with a flow " do
+    it "lets me do an advanced search with a flow " do
+      pending "functionality no longer exists"
       etsy.etsy_header.buy_link.click
       etsy.buy_page.advanced_search.click
       etsy.handmade_advanced_search('shirt', '5.00', '50.00', 'Canada')
@@ -49,7 +51,11 @@ describe "Advanced search" do
 
   context "from the top navigation" do
     it "lets me change the item type" do
-      pending "need to figure out how to do the drop down in the header"
+      etsy.etsy_header.search_drop_down.click
+      etsy.etsy_header.search_type("Supplies").when_present.click
+      etsy.etsy_header.search_text.set "belt"
+      etsy.etsy_header.search_button.click
+      etsy.search_results_page.search_filter_radio("Supplies").checked?.should be_true
     end
   end
 end

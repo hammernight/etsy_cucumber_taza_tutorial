@@ -26,8 +26,4 @@ module Etsy
     element(:search_button) { browser.div(:class => 'input-group').button(:id => 'search_submit') }
 
   end
-
-
-
-
 end
