@@ -6,7 +6,7 @@ module Etsy
     element(:etsy_home) { browser.link(:text => 'Etsy') }
     element(:page_title) { browser.title }
     element(:main_shopping_cart) { browser.div(:id => 'primary') }
-    element(:cart_header) { browser.div(:id => 'checkout-header') }
+    element(:cart_header) { browser.div(:id => 'checkout-header').h1 }
     element(:checkout_area) { browser.div(:id => 'checkout') }
 
     element(:empty_cart) { browser.div(:id => 'empty-cart') }
