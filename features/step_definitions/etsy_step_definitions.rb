@@ -108,6 +108,10 @@ end
 
 Then /^I should see the facebook "([^"]*)" Button$/ do |link_text|
   @site.gift_ideas_page.facebook_button.text.should include(link_text)
+  end
+
+Then /^I should see the gifts recommendations "([^"]*)"$/ do |header_text|
+  @site.gift_ideas_page.recommendations.text.should include(header_text)
 end
 
 Given /^I have items in my cart$/ do
