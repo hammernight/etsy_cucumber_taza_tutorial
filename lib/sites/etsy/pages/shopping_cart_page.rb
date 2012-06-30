@@ -9,8 +9,7 @@ module Etsy
     element(:cart_header) { browser.div(:id => 'checkout-header').h1 }
     element(:checkout_area) { browser.div(:id => 'checkout') }
 
-    element(:empty_cart) { browser.div(:id => 'empty-cart') }
-    element(:empty_cart_message) { browser.h2(:text => 'Your cart is empty. Looking for ideas?')}
+    element(:empty_cart) { browser.div(:id => 'newempty').h2 }
 
     element(:first_checkout_item) { browser.form(:class=>'order') }
     element(:items_list) { browser.div(:id => 'primary') }

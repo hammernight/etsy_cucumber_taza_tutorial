@@ -13,10 +13,10 @@ Feature: Etsy Cart Functionality
     Given I have items in my cart
     And I am on the Etsy cart page
     When I remove the item from the cart
-    Then the cart is empty "Your cart is empty. Looking for ideas?" should be visible
+    Then the cart is empty "Your cart is empty." should be visible
 
   Scenario: Adding and removing item in the same session
     Given I am on Etsy
     And I have an item in my cart
     When I remove the item from the cart
-    Then the cart is empty "Your cart is empty. Looking for ideas?" should be visible
+    Then the cart is empty "Your cart is empty." should be visible
