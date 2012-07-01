@@ -98,7 +98,7 @@ When /^I specify the "([^"]*)" category$/ do |category|
 end
 
 When /^I specify the "([^"]*)" sub category$/ do |sub_category|
-  sleep 5
+  @site.advanced_search_page.handmade_sub_category.wait_until_present
   @site.advanced_search_page.handmade_sub_category.when_present.select sub_category
 end
 
