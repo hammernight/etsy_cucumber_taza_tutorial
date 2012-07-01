@@ -2,6 +2,7 @@ Before do
   @site = Etsy.new
 end
 After do
+
   @site.close
 end
 Given /^I am searching on Etsy$/ do
@@ -51,14 +52,16 @@ When /^I search for "([^"]*)"$/ do |search_item|
 end
 
 When /^I search for "([^"]*)" of a specific "([^"]*)"$/ do |search_item, type|
-  @site.etsy_header.search_drop_down.when_present.click
-  @site.etsy_header.search_type(type).wait_until_present
-  @site.etsy_header.search_type(type).when_present.click
+  if @site.etsy_header.search_drop_down.exists?
+    @site.etsy_header.search_drop_down.when_present.click
+    @site.etsy_header.search_type(type).wait_until_present
+    @site.etsy_header.search_type(type).when_present.click
+  end
+
   @site.search_for(search_item)
 end
 
-Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |search_category, search_item|
-  @site.search_results_page.search_filter_radio(search_category).checked?.should be_true
+Then /^I should see the search results for "([^"]*)"$/ do |search_item|
   @site.browser.title.should include(search_item)
   @site.search_results_page.search_results_message.text.should include(search_item)
 end
@@ -110,7 +113,7 @@ end
 
 Then /^I should see the facebook "([^"]*)" Button$/ do |link_text|
   @site.gift_ideas_page.facebook_button.text.should include(link_text)
-  end
+end
 
 Then /^I should see the gifts recommendations "([^"]*)"$/ do |header_text|
   @site.gift_ideas_page.recommendations.text.should include(header_text)
