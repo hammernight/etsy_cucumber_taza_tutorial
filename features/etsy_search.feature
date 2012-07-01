@@ -9,16 +9,14 @@ Feature: Etsy Search Functionality
     When I search for "hat"
     Then I should see "handmade" search results for "hat"
 
-  @wip
   Scenario Outline: : basic search for an item
     Given I am searching on Etsy
     When I search for "<item>" of a specific "<item_type>"
     Then I should see "<item_type>" search results for "<item>"
 
   Scenarios: Search for item and item type
-    | item   | item_type |
-    | hat    | handmade  |
-    | shirt  | vintage   |
-    | brush  | supplies  |
-    | george | people    |
-    | place  | shops     |
+    | item          | item_type |
+    | hat           | Handmade  |
+    | shirt         | Vintage   |
+    | brush         | Supplies  |
+    | bottle opener | All Items |

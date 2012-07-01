@@ -51,13 +51,15 @@ When /^I search for "([^"]*)"$/ do |search_item|
 end
 
 When /^I search for "([^"]*)" of a specific "([^"]*)"$/ do |search_item, type|
-  pending
-  @site.etsy_header.search_type(type).click
+  @site.etsy_header.search_drop_down.when_present.click
+  @site.etsy_header.search_type(type).wait_until_present
+  @site.etsy_header.search_type(type).when_present.click
   @site.search_for(search_item)
 end
 
 Then /^I should see "([^"]*)" search results for "([^"]*)"$/ do |search_category, search_item|
-  @site.browser.title.should include(search_category)
+  @site.search_results_page.search_filter_radio(search_category).checked?.should be_true
+  @site.browser.title.should include(search_item)
   @site.search_results_page.search_results_message.text.should include(search_item)
 end
 

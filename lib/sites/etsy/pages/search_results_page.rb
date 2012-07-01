@@ -7,7 +7,7 @@ module Etsy
 
     element(:first_result) { browser.ul(:class => 'listings').li(:index => 1) }
     element(:first_result_link) { browser.ul(:class => 'listings').li(:index => 1).link(:class => 'listing-thumb') }
-    element(:search_results_message) { browser.h1(:class => 'summary') }
+    element(:search_results_message) { browser.h1(:class => 'summary').li }
 
     element(:side_navigation) { browser.div(:class => "section category-nav") }
     element(:search_filter) { |filter_name| side_navigation.span(:class => "text", :text => filter_name) }
