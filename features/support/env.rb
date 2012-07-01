@@ -11,6 +11,16 @@ ENV["TAZA_ENV"] ||= 'isolation'
 
 (ENV['BROWSER'] ||= 'firefox').downcase
 
+#option HEADLESS=true
+if ENV['HEADLESS']
+  require 'headless'
+  headless = Headless.new
+  headless.start
+  at_exit do
+    headless.destroy
+  end
+end
+
 module Taza
   class Browser
     def self.create_watir_webdriver(params)

@@ -6,6 +6,6 @@ gem 'watir-webdriver'
 gem "watir",   :platforms => [:mingw, :mswin]
 gem 'selenium-webdriver'
 gem 'i18n'
-
+gem 'headless'
 
 gem 'pry'
