@@ -9,6 +9,7 @@ Feature: Etsy Search Functionality
     When I search for "hat"
     Then I should see "handmade" search results for "hat"
 
+  @wip
   Scenario Outline: : basic search for an item
     Given I am searching on Etsy
     When I search for "<item>" of a specific "<item_type>"
