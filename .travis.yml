@@ -3,8 +3,8 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 
-script: "bundle exec rspec spec HEADLESS=true"
-script: "bundle exec cucumber HEADLESS=true"
+script: "HEADLESS=true bundle exec rspec spec"
+script: "HEADLESS=true bundle exec cucumber"
 
 language: ruby
 rvm:
