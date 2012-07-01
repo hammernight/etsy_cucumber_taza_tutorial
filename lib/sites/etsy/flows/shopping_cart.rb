@@ -11,6 +11,7 @@ module Etsy
     def add_items_to_cart(item)
       etsy_header.search_text.set(item)
       etsy_header.search_button.click
+      search_results_page.first_result_link.wait_until_present
       search_results_page.first_result_link.when_present.click
       item_detail_page.add_to_cart_button.click
     end
