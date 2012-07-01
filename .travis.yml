@@ -3,7 +3,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 
-script: "HEADLESS=true bundle exec cucumber"
+script: "bundle exec HEADLESS=true cucumber"
 
 language: ruby
 rvm:
